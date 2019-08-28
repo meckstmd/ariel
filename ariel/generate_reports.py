@@ -278,6 +278,9 @@ def generate(config, instances, ris, pricing):
             # % Change a new instance will be covered
             coverage_chance = np.minimum(floating_ri_units / floating_instance_units * 100, 100)
 
+            LOGGER.info("ri_units: {}, arraySizes: total_usage={}, floating_ri_units={}, floating_instance_values={}, unused_ri_units={}, coverage_chance={}".format(
+                        ri_units, len(total_usage), len(floating_ri_units), len(floating_instance_units), len(unused_ri_units), len(coverage_chance)))
+
             # Build report rows
             usage_keys = pd.DataFrame([group], columns=region_instance_groups.keys)
             usage_data = pd.DataFrame({
